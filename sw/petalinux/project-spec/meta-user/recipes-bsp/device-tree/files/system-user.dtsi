@@ -1,0 +1,51 @@
+/include/ "system-conf.dtsi"
+/ {
+	amba_pl {
+        //https://www.kernel.org/doc/Documentation/devicetree/bindings/leds/leds-gpio.txt
+        leds {
+            compatible = "gpio-leds";
+            led0 {
+                label = "led0";
+                gpios = <&axi_gpio_0 0 0 0>;
+                default-state = "off";
+                linux,default-trigger = "heartbeat";
+            };
+            led1 {
+                label = "led1";
+                gpios = <&axi_gpio_0 1 0 0>;
+                default-state = "off";
+                linux,default-trigger = "kbd-numlock";
+            };
+            led2 {
+                label = "led2";
+                gpios = <&axi_gpio_0 2 0 0>;
+                default-state = "off";
+                linux,default-trigger = "kbd-capslock";
+            };
+            led3 {
+                label = "led3";
+                gpios = <&axi_gpio_0 3 0 0>;
+                default-state = "off";
+            };
+        };
+        //https://www.kernel.org/doc/Documentation/devicetree/bindings/input/gpio-keys-polled.txt
+        gpio-keys {
+            compatible = "gpio-keys-polled";
+            poll-interval = <50>;
+            #address-cells = <1>;
+            #size-cells = <0>;
+            autorepeat;
+            //https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
+            btn1 {
+                label = "btn1-numlock";
+                gpios = <&axi_gpio_1 1 0 0>;
+                linux,code = <69>; // KEY_NUMLOCK
+            };
+            btn2 {
+                label = "btn2-capslock";
+                gpios = <&axi_gpio_1 2 0 0>;
+                linux,code = <58>; // KEY_CAPSLOCK
+            };
+        };
+    };
+};
