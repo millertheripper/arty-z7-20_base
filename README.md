@@ -1,6 +1,7 @@
 # Arty-Z7-20 Base
 Base project demonstrating access to LEDs and buttons from bare-metal and linux
 - Vitis: Bare Metal Register/Driver access
+- Vitis: FreeRTOS demonstration
 - Linux: GPIO-Keys
 
 ## Hardware Requirements:
@@ -19,6 +20,3 @@ Base project demonstrating access to LEDs and buttons from bare-metal and linux
 # Revision control
 ## From Vivado tcl shell: 
 - write_bd_tcl [get_property DIRECTORY [current_project]]/../source/scripts/bd.tcl -include_layout -force
-
-## Vitis source files:
-- ./sw/vitis/src

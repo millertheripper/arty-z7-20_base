@@ -7,7 +7,8 @@ all: fpga vitis
 
 .PHONY: vitis
 vitis:
-	$(MAKE) -C sw/vitis
+	$(MAKE) -C sw/vitis/bare_metal
+	$(MAKE) -C sw/vitis/free_rtos
 
 .PHONY: fpga
 fpga:
@@ -24,4 +25,5 @@ clean-hw:
 
 .PHONY: clean-sw
 clean-sw:
-	$(MAKE) -C sw/vitis clean
+	$(MAKE) -C sw/vitis/bare_metal clean
+	$(MAKE) -C sw/vitis/free_rtos clean
