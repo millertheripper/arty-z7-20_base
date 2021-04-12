@@ -3,7 +3,11 @@ include Makefile.inc
 BUILD := $(shell pwd)/build
 
 .PHONY: all
-all: fpga vitis
+all: fpga vitis petalinux
+
+.PHONY: petalinux
+petalinux:
+	$(MAKE) -C sw/petalinux
 
 .PHONY: vitis
 vitis:
@@ -27,3 +31,6 @@ clean-hw:
 clean-sw:
 	$(MAKE) -C sw/vitis/bare_metal clean
 	$(MAKE) -C sw/vitis/free_rtos clean
+	$(MAKE) -C sw/petalinux clean
+	rm -rf $(BUILD)/vitis/*
+	rm -rf $(BUILD)/petalinux/*
