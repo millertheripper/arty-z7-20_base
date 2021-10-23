@@ -1,0 +1,3 @@
+[submodule "sw/u-boot-xlnx"]
+	path = sw/u-boot-xlnx
+	url = git@github.com:millertheripper/u-boot-xlnx.git

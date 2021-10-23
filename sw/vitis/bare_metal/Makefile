@@ -29,7 +29,8 @@ bootimg:
 	rm -rf ws/tmp
 	cd ws && mkdir tmp
 	$(VIVADO) && bash -c "sh scripts/create_bif.sh $(WS_DIR) $(HW_PLATFORM_NAME) $(TMP_IMG_DIR)"
-	@cp $(TMP_IMG_DIR)/BOOT.bin $(TMP_IMG_DIR)/sw.bif ./build
+	$(VIVADO) && bash -c "sh scripts/create_bif_uboot.sh $(WS_DIR) $(HW_PLATFORM_NAME) $(TMP_IMG_DIR)"
+	@cp $(TMP_IMG_DIR)/*.bin $(TMP_IMG_DIR)/*.bif ./build
 	@rm -rf ws/tmp
 	@echo ""
 	@echo "INFO: Bootimage was copied to $(shell pwd)/build/BOOT.bin"
