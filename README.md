@@ -1,11 +1,11 @@
 # Arty-Z7-20 Base
-**Vivado Version: 2020.1**
+**Vivado Version: 2020.2**
 ------
 Contents: 
 Base project demonstrating access to LEDs and buttons from bare-metal and linux
 - Vitis: Bare Metal Register/Driver access
 - Vitis: FreeRTOS demonstration
-- Linux: GPIO-Keys
+- Linux: GPIO-Keys with device tree
 
 ## Hardware Requirements:
 - Digilent Arty-Z7-20
@@ -13,8 +13,9 @@ Base project demonstrating access to LEDs and buttons from bare-metal and linux
 - SD Card
 
 ## Software Requirements
-- Vivado/Vitis 2020.1
-- Petalinux 2020.1
+- Ubuntu 18.04 host system for compilation
+- Vivado/Vitis 2020.2
+- Petalinux 2020.2
 - Terminal program (TeraTerm or minicom)
 
 

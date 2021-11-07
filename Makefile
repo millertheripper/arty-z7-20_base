@@ -1,6 +1,7 @@
 include Makefile.inc
 
 BUILD := $(shell pwd)/build
+VIVADO := source /opt/Xilinx/Vivado/$(VERSION)/settings64.sh
 
 .PHONY: all
 all: git-init fpga u-boot vitis petalinux
@@ -11,8 +12,8 @@ petalinux:
 
 .PHONY: u-boot
 u-boot:
-	$(MAKE) -C sw/u-boot-xlnx xilinx_zynq_virt_defconfig
-	$(MAKE) -C sw/u-boot-xlnx -j
+	$(VIVADO) && $(MAKE) -C sw/u-boot-xlnx xilinx_zynq_virt_defconfig
+	$(VIVADO) && $(MAKE) -C sw/u-boot-xlnx -j
 
 .PHONY: vitis
 vitis:
@@ -37,11 +38,11 @@ clean-sw:
 	$(MAKE) -C sw/vitis/bare_metal clean
 	$(MAKE) -C sw/vitis/free_rtos clean
 	$(MAKE) -C sw/petalinux clean
-	$(MAKE) -C sw/u-boot distclean
+	$(VIVADO) && $(MAKE) -C sw/u-boot-xlnx distclean
 	rm -rf $(BUILD)/vitis/*
 	rm -rf $(BUILD)/petalinux/*
 
 .PHONY: git-init
 git-init:
-	git submodule init --update --remote
+	git submodule update --init --recursive
 

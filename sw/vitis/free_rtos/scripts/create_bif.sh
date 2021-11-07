@@ -7,7 +7,7 @@ echo "//arch = zynq; split = false; format = BIN">> $BOOT_BIF
 echo "the_ROM_image:"                            >> $BOOT_BIF
 echo "{"                                         >> $BOOT_BIF
 echo "  [bootloader]$FSBL_ELF"                   >> $BOOT_BIF
-echo "  $1/$2/bitstream/$2.bit"                  >> $BOOT_BIF
+echo "  $1/$2/hw/$2.bit"                         >> $BOOT_BIF
 echo "  $1/app/Debug/app.elf"                    >> $BOOT_BIF
 echo "}"                                         >> $BOOT_BIF
 
