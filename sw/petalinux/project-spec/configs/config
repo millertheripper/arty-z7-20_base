@@ -249,12 +249,12 @@ CONFIG_YOCTO_PARALLEL_MAKE=""
 #
 # Add pre-mirror url 
 #
-CONFIG_PRE_MIRROR_URL="file:///opt/Xilinx/petalinux/2020.2/pre-mirror/downloads"
+CONFIG_PRE_MIRROR_URL="file:///opt/Xilinx/petalinux/2020.2/downloads"
 
 #
 # Local sstate feeds settings
 #
-CONFIG_YOCTO_LOCAL_SSTATE_FEEDS_URL="/opt/Xilinx/petalinux/2020.2/sstate_arm_2020.2/arm"
+CONFIG_YOCTO_LOCAL_SSTATE_FEEDS_URL="file:///opt/Xilinx/petalinux/2020.2/sstate_cache/arm"
 CONFIG_YOCTO_NETWORK_SSTATE_FEEDS=y
 
 #
