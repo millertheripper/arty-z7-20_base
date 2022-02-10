@@ -8,6 +8,7 @@ all: update-fpga BOOT_BIN dist
 .PHONY: BOOT_BIN
 BOOT_BIN: petalinux 	
 	$(PETALINUX) petalinux-package --boot --fpga --u-boot --force
+	$(PETALINUX) petalinux-package --wic --extra-bootfiles "image.ub system.dtb"
 
 .PHONY: petalinux
 petalinux:
@@ -23,6 +24,11 @@ update-fpga:
 	$(PETALINUX) petalinux-config --silentconfig --get-hw-description ../xsa/
 
 .PHONY: dist
-dist: 	
-	mkdir -p ${DISTDIR}
-	cp $(shell pwd)/images/linux/{boot.scr,BOOT.BIN,image.ub,rootfs.tar.gz} ${DISTDIR} 
+dist:
+	rm -rf ${DISTDIR} && mkdir -p ${DISTDIR}
+	cp $(shell pwd)/images/linux/{boot.scr,BOOT.BIN,image.ub,system.dtb,uImage,rootfs.tar.gz} ${DISTDIR}
+	tar -czvf ${DISTDIR}/sdimage-wic.tar.gz $(shell pwd)/images/linux/petalinux-sdimage.wic
+	
+
+
+
