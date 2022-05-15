@@ -4,3 +4,4 @@
 [submodule "sw/vitis/device_tree/device-tree-xlnx"]
 	path = sw/vitis/device_tree/device-tree-xlnx
 	url = https://github.com/Xilinx/device-tree-xlnx.git
+	branch = xilinx-v2020.2
