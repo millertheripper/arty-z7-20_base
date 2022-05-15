@@ -1,3 +1,6 @@
 [submodule "sw/u-boot-xlnx"]
 	path = sw/u-boot-xlnx
 	url = git@github.com:millertheripper/u-boot-xlnx.git
+[submodule "sw/vitis/device_tree/device-tree-xlnx"]
+	path = sw/vitis/device_tree/device-tree-xlnx
+	url = https://github.com/Xilinx/device-tree-xlnx.git
